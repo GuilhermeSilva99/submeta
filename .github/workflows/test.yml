@@ -1,0 +1,33 @@
+name: PHP Test Coverage
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v3
+
+      - name: Configurar PHP e Composer
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: xdebug
+
+      - name: Instalar dependências
+        run: composer install --prefer-dist --no-progress --no-suggest
+
+      - name: Rodar testes com cobertura
+        run: ./vendor/bin/phpunit --coverage-clover=coverage.xml
+
+      - name: Upload do relatório de cobertura
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage.xml
