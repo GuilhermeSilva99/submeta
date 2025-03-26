@@ -16,7 +16,7 @@ class AlterTipoVinculoInRelatorioIntegrantesInternosTable extends Migration
     {
         Schema::table('relatorio_integrantes_internos', function (Blueprint $table)
         {
-            $table->string('tipo_vinculo')->nullable()->change();
+            //
         });
     }
 

@@ -14,7 +14,7 @@ class AlterTableArquivos3 extends Migration
     public function up()
     {
         Schema::table('arquivos', function (Blueprint $table) {
-            $table->integer('participanteId')->nullable()->change();
+            //
         });
     }
 

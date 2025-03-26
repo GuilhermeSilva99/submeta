@@ -14,7 +14,7 @@ class AddAreaTematicaToTrabalhosTable extends Migration
     public function up()
     {
         Schema::table('trabalhos', function (Blueprint $table) {
-            $table->integer('area_tematica_id')->nullable();
+            $table->unsignedBigInteger('area_tematica_id')->nullable();
             $table->foreign('area_tematica_id')->references('id')->on('area_tematicas');
         });
     }

@@ -14,7 +14,7 @@ class ChangeAvaliacaoRelatoriosNotaColumnType extends Migration
     public function up()
     {
         Schema::table('avaliacao_relatorios', function (Blueprint $table) {
-            $table->float('nota')->nullable()->change();
+            //
         });
     }
 

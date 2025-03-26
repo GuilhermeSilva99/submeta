@@ -17,9 +17,9 @@ class CreateNaturezasAvaliadorsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
 
-            $table->integer('natureza_id');
+            $table->unsignedBigInteger('natureza_id');
             $table->foreign('natureza_id')->references('id')->on('naturezas');
-            $table->integer('avaliador_id');
+            $table->unsignedBigInteger('avaliador_id');
             $table->foreign('avaliador_id')->references('id')->on('avaliadors');
 
         });

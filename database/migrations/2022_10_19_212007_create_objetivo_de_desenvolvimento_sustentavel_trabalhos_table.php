@@ -15,11 +15,11 @@ class CreateObjetivoDeDesenvolvimentoSustentavelTrabalhosTable extends Migration
     {
         Schema::create('objetivo_de_desenvolvimento_sustentavel_trabalhos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('objetivo_de_desenvolvimento_sustentavel_id');
-            $table->foreign('objetivo_de_desenvolvimento_sustentavel_id')->references('id')->on('objetivo_de_desenvolvimento_sustentavels');
+            $table->unsignedBigInteger('obj_id');
+            $table->foreign('obj_id')->references('id')->on('objetivo_de_desenvolvimento_sustentavels');
 
-            $table->integer('trabalho_id');
-            $table->foreign('trabalho_id')->references('id')->on('trabalhos');
+            $table->unsignedBigInteger('tb_id');
+            $table->foreign('tb_id')->references('id')->on('trabalhos');
             $table->timestamps();
         });
     }

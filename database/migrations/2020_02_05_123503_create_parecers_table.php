@@ -18,8 +18,8 @@ class CreateParecersTable extends Migration
             $table->timestamps();
             $table->string('resultado');
 
-            $table->integer('revisorId');
-            $table->integer('trabalhoId');
+            $table->unsignedBigInteger('revisorId');
+            $table->unsignedBigInteger('trabalhoId');
         });
     }
 

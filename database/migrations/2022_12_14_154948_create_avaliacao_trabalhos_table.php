@@ -17,13 +17,13 @@ class CreateAvaliacaoTrabalhosTable extends Migration
             $table->bigIncrements('id');
             $table->float('nota')->nullable();
 
-            $table->integer('avaliador_id');
+            $table->unsignedBigInteger('avaliador_id');
             $table->foreign('avaliador_id')->references('id')->on('avaliadors');
 
-            $table->integer('campo_avaliacao_id');
+            $table->unsignedBigInteger('campo_avaliacao_id');
             $table->foreign('campo_avaliacao_id')->references('id')->on('campo_avaliacaos');
 
-            $table->integer('trabalho_id');
+            $table->unsignedBigInteger('trabalho_id');
             $table->foreign('trabalho_id')->references('id')->on('trabalhos');
 
             $table->timestamps();

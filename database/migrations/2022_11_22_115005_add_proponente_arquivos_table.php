@@ -14,7 +14,7 @@ class AddProponenteArquivosTable extends Migration
     public function up()
     {
         Schema::table('arquivos', function (Blueprint $table) {
-            $table->integer('proponenteId')->nullable();
+            $table->unsignedBigInteger('proponenteId')->nullable();
 
             $table->foreign('proponenteId')->references('id')->on('proponentes');
         });

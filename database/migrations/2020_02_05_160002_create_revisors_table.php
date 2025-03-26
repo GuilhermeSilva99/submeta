@@ -20,9 +20,9 @@ class CreateRevisorsTable extends Migration
             $table->integer('trabalhosCorrigidos');
             $table->integer('correcoesEmAndamento');
 
-            $table->integer('revisorId');
-            $table->integer('areaId');
-            $table->integer('eventoId');
+            $table->unsignedBigInteger('revisorId');
+            $table->unsignedBigInteger('areaId');
+            $table->unsignedBigInteger('eventoId');
         });
     }
 

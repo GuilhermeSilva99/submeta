@@ -15,8 +15,7 @@ class AlterTableJustificativaObjetivosTable extends Migration
     {
         Schema::table('relatorios', function (Blueprint $table)
         {
-            $table->text('justificativa_objetivos_alcancados')->nullable()->change();
-            $table->text('justificativa_publico_estimado')->nullable()->change();
+            //
         });
     }
 

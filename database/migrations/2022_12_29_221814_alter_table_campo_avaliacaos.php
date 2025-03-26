@@ -14,7 +14,7 @@ class AlterTableCampoAvaliacaos extends Migration
     public function up()
     {
         Schema::table('campo_avaliacaos', function (Blueprint $table) {
-            $table->integer('evento_id')->nullable()->change();
+            //
         });
     }
 

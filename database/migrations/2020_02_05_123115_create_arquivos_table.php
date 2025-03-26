@@ -22,8 +22,8 @@ class CreateArquivosTable extends Migration
             $table->boolean('versaoFinal')->nullable();
             $table->date('data')->nullable();
 
-            $table->integer('trabalhoId');
-            $table->integer('participanteId');
+            $table->unsignedBigInteger('trabalhoId');
+            $table->unsignedBigInteger('participanteId');
         });
     }
 

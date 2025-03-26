@@ -17,13 +17,13 @@ class CreateTrabalhoUsersTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
 
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->integer('trabalho_id');
+            $table->unsignedBigInteger('trabalho_id');
             $table->foreign('trabalho_id')->references('id')->on('trabalhos');
 
-            $table->integer('funcao_participante_id');
+            $table->unsignedBigInteger('funcao_participante_id');
             $table->foreign('funcao_participante_id')->references('id')->on('funcao_participantes');
         });
     }

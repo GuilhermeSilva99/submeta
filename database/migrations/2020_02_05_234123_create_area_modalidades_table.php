@@ -17,8 +17,8 @@ class CreateAreaModalidadesTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
 
-            $table->integer('areaId');
-            $table->integer('modalidadeId');
+            $table->unsignedBigInteger('areaId');
+            $table->unsignedBigInteger('modalidadeId');
         });
     }
 

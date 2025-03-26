@@ -20,7 +20,7 @@ class CreateCampoAvaliacaosTable extends Migration
             $table->text('descricao')->nullable();
             $table->integer('prioridade')->nullable();
 
-            $table->integer('evento_id');
+            $table->unsignedBigInteger('evento_id');
             $table->foreign('evento_id')->references('id')->on('eventos');
 
             $table->timestamps();

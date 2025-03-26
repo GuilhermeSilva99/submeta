@@ -21,7 +21,7 @@ class CreateParecerInternosTable extends Migration
             $table->string('statusLinkLattesProponente');
 
             $table->string('statusAnexoProjeto');
-            $table->string('statusAnexoDecisaoCONSU');
+            $table->string('statusAnexoDecisaoCONSU')->nullable();
             $table->string('statusAnexoPlanilhaPontuacao');
             $table->string('statusAnexoLattesCoordenador');
             $table->string('statusAnexoGrupoPesquisa');

@@ -17,7 +17,7 @@ class CreateRelatorioIntegrantesInternosTable extends Migration
         {
             $table->bigIncrements('id');
             $table->enum('tipo', ['Servidor', 'Discente']);
-            $table->enum('tipo_vinculo', ['Docente', 'Substituto/a', 'Técnico/a Administrativo/a'])->nullable();
+            $table->string('tipo_vinculo')->nullable();
             $table->string('nome');
             $table->string('cpf');
             $table->string('curso_graduacao')->nullable();

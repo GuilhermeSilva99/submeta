@@ -15,7 +15,7 @@ class AlterStatusAnexoDecisaoConsuInParecerInternosTable extends Migration
     {
         Schema::table('parecer_internos', function (Blueprint $table)
         {
-            $table->string('statusAnexoDecisaoCONSU')->nullable()->change();
+            //
         });
     }
 

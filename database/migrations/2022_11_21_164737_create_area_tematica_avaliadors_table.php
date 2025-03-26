@@ -16,10 +16,10 @@ class CreateAreaTematicaAvaliadorsTable extends Migration
         Schema::create('area_tematica_avaliadors', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->integer('area_tematica_id');
+            $table->unsignedBigInteger('area_tematica_id');
             $table->foreign('area_tematica_id')->references('id')->on('area_tematicas');
 
-            $table->integer('avaliador_id');
+            $table->unsignedBigInteger('avaliador_id');
             $table->foreign('avaliador_id')->references('id')->on('avaliadors');
 
             $table->timestamps();

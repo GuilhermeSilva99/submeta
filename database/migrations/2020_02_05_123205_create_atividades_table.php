@@ -21,7 +21,7 @@ class CreateAtividadesTable extends Migration
             $table->boolean('versaoFinal');
             $table->date('data');
 
-            $table->integer('eventoId');
+            $table->unsignedBigInteger('eventoId');
         });
     }
 

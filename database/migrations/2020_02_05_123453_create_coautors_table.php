@@ -18,8 +18,8 @@ class CreateCoautorsTable extends Migration
             $table->timestamps();
             $table->string('ordem');
 
-            $table->integer('autorId');
-            $table->integer('trabalhoId');
+            $table->unsignedBigInteger('autorId');
+            $table->unsignedBigInteger('trabalhoId');
         });
     }
 

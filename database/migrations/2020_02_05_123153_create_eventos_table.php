@@ -33,7 +33,7 @@ class CreateEventosTable extends Migration
             $table->integer('numParticipantes')->nullable();
             $table->boolean('hasResumo')->nullable();
             $table->integer('criador_id')->nullable();
-            $table->integer('coordenadorId')->nullable();
+            $table->unsignedBigInteger('coordenadorId')->nullable();
             $table->string('pdfEdital')->nullable();
             $table->string('modeloDocumento')->nullable();
             $table->string('anexosStatus')->nullable();

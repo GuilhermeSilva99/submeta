@@ -16,9 +16,9 @@ class AvaliacaoRelatorio extends Migration
         Schema::create('avaliacao_relatorios', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->integer('user_id');
-            $table->integer('arquivo_id');
-            $table->integer('nota')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('arquivo_id');
+            $table->decimal('nota', 8, 2)->nullable();
             $table->text('comentario')->nullable();
             $table->string('arquivoAvaliacao')->nullable();
             $table->enum('tipo', ['Parcial', 'Final']);

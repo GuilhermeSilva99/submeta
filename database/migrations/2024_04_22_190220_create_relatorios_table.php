@@ -25,10 +25,10 @@ class CreateRelatoriosTable extends Migration
             $table->boolean('captacao_recursos');
             $table->text('resumo');
             $table->integer('objetivos_alcancados');
-            $table->string('justificativa_objetivos_alcancados')->nullable();
+            $table->text('justificativa_objetivos_alcancados')->nullable();
             $table->integer('pessoas_beneficiadas');
             $table->integer('alcance_publico_estimado');
-            $table->string('justificativa_publico_estimado')->nullable();
+            $table->text('justificativa_publico_estimado')->nullable();
             $table->text('beneficios_publico_atendido');
             $table->text('impactos_tecnologicos_cientificos');
             $table->text('desafios_encontrados');

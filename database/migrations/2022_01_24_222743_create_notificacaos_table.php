@@ -16,9 +16,9 @@ class CreateNotificacaosTable extends Migration
         Schema::create('notificacaos', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->integer('remetente_id');
-            $table->integer('destinatario_id');
-            $table->integer('trabalho_id');
+            $table->unsignedBigInteger('remetente_id');
+            $table->unsignedBigInteger('destinatario_id');
+            $table->unsignedBigInteger('trabalho_id');
             $table->boolean('lido');
             $table->integer('tipo');
 

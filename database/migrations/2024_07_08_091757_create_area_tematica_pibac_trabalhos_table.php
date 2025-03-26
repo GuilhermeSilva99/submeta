@@ -16,10 +16,10 @@ class CreateAreaTematicaPibacTrabalhosTable extends Migration
         Schema::create('area_tematica_pibac_trabalhos', function (Blueprint $table)
         {
             $table->bigIncrements('id');
-            $table->integer('area_tematica_pibac_id');
+            $table->unsignedBigInteger('area_tematica_pibac_id');
             $table->foreign('area_tematica_pibac_id')->references('id')->on('area_tematica_pibacs');
 
-            $table->integer('trabalho_id');
+            $table->unsignedBigInteger('trabalho_id');
             $table->foreign('trabalho_id')->references('id')->on('trabalhos');
 
             $table->timestamps();

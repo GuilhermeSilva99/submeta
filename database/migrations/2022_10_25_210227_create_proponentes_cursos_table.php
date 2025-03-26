@@ -16,10 +16,10 @@ class CreateProponentesCursosTable extends Migration
         Schema::create('proponentes_cursos', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->integer('curso_id');
+            $table->unsignedBigInteger('curso_id');
             $table->foreign('curso_id')->references('id')->on('cursos');
 
-            $table->integer('proponente_id');
+            $table->unsignedBigInteger('proponente_id');
             $table->foreign('proponente_id')->references('id')->on('proponentes');
 
             $table->timestamps();
