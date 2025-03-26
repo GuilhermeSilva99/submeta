@@ -18,10 +18,11 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '7.2'
+          extensions: mbstring, pdo, xml, dom
           coverage: xdebug
 
       - name: Instalar dependências
-        run: composer install --prefer-dist --no-progress --no-suggest
+        run: composer install --prefer-dist --no-progress --no-scripts
 
       - name: Rodar testes com cobertura
         run: ./vendor/bin/phpunit --coverage-clover=coverage.xml
