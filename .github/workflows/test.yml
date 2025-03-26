@@ -23,6 +23,12 @@ jobs:
 
       - name: Instalar dependências
         run: composer install --prefer-dist --no-progress --no-scripts
+            
+      - name: Criar arquivo .env
+        run: cp .env.example .env
+
+      - name: Gerar chave da aplicação
+        run: php artisan key:generate
 
       - name: Rodar testes com cobertura
         run: ./vendor/bin/phpunit --coverage-clover=coverage.xml
