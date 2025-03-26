@@ -1,0 +1,34 @@
+name: CI - PHP Test and Coverage
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 🐘 Setup PHP 7.2
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.2'
+          extensions: mbstring, pdo, xml, dom
+          coverage: xdebug
+
+      - name: 📦 Install Composer dependencies (no suggest)
+        run: composer install --prefer-dist --no-progress --no-scripts
+
+      - name: ✅ Run PHPUnit with coverage
+        run: ./vendor/bin/phpunit --coverage-clover=coverage.xml
+
+      - name: 📤 Upload coverage artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage
+          path: coverage.xml
