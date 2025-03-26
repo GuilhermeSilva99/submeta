@@ -2,9 +2,9 @@ name: CI - PHP Test and Coverage
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, master ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, master ]
 
 jobs:
   test:
@@ -28,7 +28,7 @@ jobs:
         run: ./vendor/bin/phpunit --coverage-clover=coverage.xml
 
       - name: 📤 Upload coverage artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: coverage
           path: coverage.xml
