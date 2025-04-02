@@ -14,10 +14,12 @@ class AlterTipoVinculoCheckInRelatorioIntegrantesInternosTable extends Migration
      */
     public function up()
     {
-        Schema::table('relatorio_integrantes_internos', function (Blueprint $table)
-        {
-            DB::statement('ALTER TABLE relatorio_integrantes_internos DROP CONSTRAINT IF EXISTS relatorio_integrantes_internos_tipo_vinculo_check');
-        });
+        if (DB::getDriverName() !== 'sqlite') {
+            Schema::table('relatorio_integrantes_internos', function (Blueprint $table)
+            {
+                DB::statement('ALTER TABLE relatorio_integrantes_internos DROP CONSTRAINT IF EXISTS relatorio_integrantes_internos_tipo_vinculo_check');
+            });
+        }
     }
 
     /**
@@ -27,9 +29,11 @@ class AlterTipoVinculoCheckInRelatorioIntegrantesInternosTable extends Migration
      */
     public function down()
     {
-        Schema::table('relatorio_integrantes_internos', function (Blueprint $table)
-        {
-            DB::statement('ALTER TABLE relatorio_integrantes_internos ADD CONSTRAINT relatorio_integrantes_internos_tipo_vinculo_check CHECK (tipo_vinculo IN (\'Docente\', \'Substituto/a\', \'Técnico/a Administrativo/a\'))');
-        });
+        if (DB::getDriverName() !== 'sqlite') {
+            Schema::table('relatorio_integrantes_internos', function (Blueprint $table)
+            {
+                DB::statement('ALTER TABLE relatorio_integrantes_internos ADD CONSTRAINT relatorio_integrantes_internos_tipo_vinculo_check CHECK (tipo_vinculo IN (\'Docente\', \'Substituto/a\', \'Técnico/a Administrativo/a\'))');
+            });
+        }
     }
 }
