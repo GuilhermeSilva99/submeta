@@ -26,7 +26,7 @@ class UniqueEmail implements Rule
      */
     public function passes($attribute, $value)
     {
-        return empty(DB::table("users")->where("email", 'ilike', $value)->first());
+        return empty(DB::table("users")->where("email", 'like', $value)->first());
     }
 
     /**

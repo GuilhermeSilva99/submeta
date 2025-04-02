@@ -1089,7 +1089,7 @@ class AdministradorController extends Controller
         $nomeAvaliador = $request->nomeAvaliador;
         $emailAvaliador = $request->emailAvaliador;
         $area = Area::where('id', $request->area_id)->first();
-        $user = User::where('email', 'ilike', $emailAvaliador)->first();
+        $user = User::where('email', 'like', $emailAvaliador)->first();
 
         if($evento->tipo == "PIBAC")
         {
@@ -1224,7 +1224,7 @@ class AdministradorController extends Controller
         $nomeAvaliador = $request->nomeAvaliador;
         $emailAvaliador = $request->emailAvaliador;
         $area = Area::where('id', $request->area_id)->first();
-        $user = User::where('email', 'ilike', $emailAvaliador)->first();
+        $user = User::where('email', 'like', $emailAvaliador)->first();
 
         if($evento->tipo == "PIBAC")
         {

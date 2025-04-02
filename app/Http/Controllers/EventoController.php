@@ -43,7 +43,7 @@ class EventoController extends Controller
             $hoje = $hoje->toDateString();
             return view('coordenador.home',['eventos'=>$eventos, 'hoje'=>$hoje, 'palavra'=>'', 'flag'=>'false']);
         }else{
-            $eventos = Evento::where('nome','ilike','%'.$request->buscar.'%')->get();
+            $eventos = Evento::where('nome','like','%'.$request->buscar.'%')->get();
             $hoje = Carbon::today('America/Recife');
             $hoje = $hoje->toDateString();
             return view('coordenador.home',['eventos'=>$eventos, 'hoje'=>$hoje, 'palavra'=>$request->buscar, 'flag'=>'true']);

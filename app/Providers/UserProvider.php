@@ -25,7 +25,7 @@ class UserProvider extends EloquentUserProvider implements UserProviderContract
             }
 
             if (Str::contains($key, 'email')) {
-                $query->where($key, 'ilike', $value);
+                $query->where($key, 'like', $value);
                 continue;
             }
 

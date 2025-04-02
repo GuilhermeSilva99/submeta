@@ -103,7 +103,7 @@ class ProponenteController extends Controller
         }else{
             $proponente = Proponente::where('user_id', Auth()->user()->id)->first();
             
-            $projetos = Trabalho::where('proponente_id','=',$proponente->id)->where('titulo','ilike','%'.$request->buscar.'%')->paginate(10);
+            $projetos = Trabalho::where('proponente_id','=',$proponente->id)->where('titulo','like','%'.$request->buscar.'%')->paginate(10);
             
             $hoje = Carbon::today('America/Recife');
             $hoje = $hoje->toDateString();
