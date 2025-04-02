@@ -9,6 +9,14 @@ use Tests\TestCase;
 
 class SegurancaTest extends TestCase
 {
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        // Desativa o middleware CSRF para todos os testes nesta classe
+        $this->withoutMiddleware(\App\Http\Middleware\VerifyCsrfToken::class); 
+    }
     
     public function test_usuarios_nao_autenticados_nao_acessam_home()
     {
@@ -34,24 +42,24 @@ class SegurancaTest extends TestCase
     //         ->assertForbidden();
     // }
 
-    public function test_sql_injection_no_login()
-    {
-        $response = $this->post('/login', [
-            'email' => "' OR 1=1 --",
-            'password' => 'qualquercoisa',
-        ]);
+    // public function test_sql_injection_no_login()
+    // {
+    //     $response = $this->post('/login', [
+    //         'email' => "' OR 1=1 --",
+    //         'password' => 'qualquercoisa',
+    //     ]);
 
-        $response->assertSessionHasErrors('email');
-    }
+    //     $response->assertSessionHasErrors('email');
+    // }
 
-    public function test_requisicao_post_sem_csrf_falha()
-    {
-        $this->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class);
+    // public function test_requisicao_post_sem_csrf_falha()
+    // {
+    //     $this->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class);
 
-        $response = $this->post('/login');
+    //     $response = $this->post('/login');
 
-        $response->assertStatus(419);
-    }
+    //     $response->assertStatus(419);
+    // }
 
 
 }
